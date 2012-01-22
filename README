@@ -3,3 +3,5 @@ Installation d'expressJS (node.js et NPM sont requis)
 
 Installer les dépendances
   (se positionner à la racine du dossier) npm install
+  
+Installer MongoDB avec brew
