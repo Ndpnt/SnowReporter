@@ -1,0 +1,5 @@
+Installation d'expressJS (node.js et NPM sont requis)
+  npm install -g express
+
+Installer les dépendances
+  (se positionner à la racine du dossier) npm install
