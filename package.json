@@ -1,9 +1,15 @@
 {
-    "name": "application-name"
-  , "version": "0.0.1"
-  , "private": true
+    "name"    : "application-name"
+  , "version" : "0.0.1"
+  , "private" : true
   , "dependencies": {
-      "express": "2.5.5"
-    , "jade": ">= 0.0.1"
+      "express"          : "2.5.5"
+    , "jade"             : ">= 0.0.1"
+    , "express-mongoose" : "latest"
+    , "mongoose"         : "latest"
+    , "mongoose-auth"    : "latest"
+    , "everyauth"        : "latest"
+    , "bcrypt"           : "latest"
+    , "mongoose-types"   : "latest"
   }
 }
