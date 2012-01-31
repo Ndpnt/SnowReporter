@@ -24,13 +24,13 @@ UserSchema.plugin(mongooseAuth, {
             }
         },
         everyauth:{
-            getLoginPath:'/login', 
+            getLoginPath:'/users/login', 
 			postLoginPath:'/login', 
 			loginView:'login.jade', 
-			getRegisterPath:'/register', 
-			postRegisterPath:'/register', 
+			getRegisterPath:'/users/register', 
+			postRegisterPath:'register', 
 			registerView:'register.jade', 
-			loginSuccessRedirect:'/index', 
+			loginSuccessRedirect:'users/index', 
 			registerSuccessRedirect:'/'
         }
     }

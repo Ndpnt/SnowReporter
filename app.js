@@ -1,7 +1,6 @@
 /**-------------- Module dependencies --------------**/
 var mongoose 	 = require('mongoose')
     Schema 		 = mongoose.Schema,
-    ObjectId 	 = mongoose.SchemaTypes.ObjectId,
     mongooseAuth = require('mongoose-auth'),
     everyauth 	 = require('everyauth'),
     Promise 	 = everyauth.Promise,
