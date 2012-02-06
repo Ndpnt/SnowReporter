@@ -8,6 +8,7 @@ var mongoose 	 = require('mongoose')
 
 mongoose.connect('mongodb://localhost/snow_reporter');
 
+
 /**-------------- MODELS --------------**/
 require('./app/models/user');
 User = mongoose.model('User');
@@ -20,8 +21,10 @@ Hill = mongoose.model('Hill');
 var app = module.exports = express.createServer();
 require('./config/environment.js')(app, express);
 
+
 /**-------------- ROUTES -------------**/
 require('./config/routes.js')(app);
+
 
 /**-------------- START --------------**/
 mongooseAuth.helpExpress(app);

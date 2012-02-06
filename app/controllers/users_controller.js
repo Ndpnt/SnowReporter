@@ -1,5 +1,5 @@
 exports.index = function(req, res) {
-	if(req.loggedIn) {
+	if (req.loggedIn) {
 		res.render('users/index', { 
 			title: 'Vous êtes bien connecté (user)' 
 		});		
