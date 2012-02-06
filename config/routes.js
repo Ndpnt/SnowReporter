@@ -14,7 +14,7 @@ module.exports = function(app) {
 	  }
 	}
 	
-	app.get('/hills/' 	 	, restrict, function(req, res) { hills.index(req, res) });
-	app.get('/hills/:name'  , function(req, res) { hills.show(req, res)  });
-	app.get('/'		  	 	, function(req, res) { users.index(req, res) });
+	app.get('/hills/' 	 	, restrict, hills.index);
+	app.get('/hills/:name'  , 			hills.show);
+	app.get('/'		  	 	, 			users.index);
 }
