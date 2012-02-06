@@ -3,3 +3,9 @@ exports.index = function(req, res) {
 		res.render('hills/index', {hills: hills});
     });
 };
+
+exports.show = function(req, res) {
+    Hill.find({name: req.params.name},function(err, hill) {
+		res.render('hills/index', {hills: hill});
+    });
+};
