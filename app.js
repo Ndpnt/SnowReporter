@@ -11,7 +11,8 @@ mongoose.connect('mongodb://localhost/snow_reporter');
 /**-------------- MODELS --------------**/
 require('./app/models/user');
 User = mongoose.model('User');
-
+require('./app/models/hill');
+Hill = mongoose.model('Hill');
 
 /**-------------- APP --------------**/
 var app = module.exports = express.createServer();
@@ -38,8 +39,10 @@ app.configure('production', function () {
 
 /**-------------- ROUTES --------------**/
 var	users_routes = require('./app/controllers/users_controller');
+var	hills_routes = require('./app/controllers/hills_controller');
 app.get('/', users_routes.index);
 
+app.get('/hills/', hills_routes.index);
 
 /**-------------- START --------------**/
 mongooseAuth.helpExpress(app);

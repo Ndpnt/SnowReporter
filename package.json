@@ -10,5 +10,6 @@
     , "mongoose-auth"    : "latest"
     , "everyauth"        : "latest"
     , "bcrypt"           : "latest"
+    , "underscore"       : "latest"
   }
 }

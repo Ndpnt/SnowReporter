@@ -1,8 +1,12 @@
+require('./user');
 var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;
+	Schema   = mongoose.Schema;
+
+User = mongoose.model('User');
 
 var HillSchema = new Schema({
-    name            : ObjectId,
+    _id             : Schema.ObjectId,
+    name            : String,
     snow_top        : {type: Number, min: 0},
     snow_bottom     : {type: Number, min: 0},
     total_nb_lifts  : {type: Number, min: 0},
@@ -10,7 +14,7 @@ var HillSchema = new Schema({
         type: String,
         open: Boolean
     }],
-    qualified_users : [Users],
+    qualified_users : [User],
     score_evaluations: [{
        who  : String,
        when : Date,
