@@ -9,3 +9,7 @@ exports.show = function(req, res) {
 		res.render('hills/index', {hills: hill});
     });
 };
+
+exports.new = function(req, res) {
+	res.render('hills/index', {hills: hill});
+};
