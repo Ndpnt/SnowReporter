@@ -14,6 +14,8 @@ User = mongoose.model('User');
 require('./app/models/hill');
 Hill = mongoose.model('Hill');
 
+
+
 /**-------------- APP --------------**/
 var app = module.exports = express.createServer();
 
@@ -37,10 +39,7 @@ app.configure('production', function () {
     app.use(express.errorHandler());
 });
 
-/**-------------- ROUTES --------------**/
-var	routes = require('./route');
-app.get('/', 	   routes.users_index);
-app.get('/hills/', routes.hills_index);
+require('./routes')(app);
 
 /**-------------- START --------------**/
 mongooseAuth.helpExpress(app);
