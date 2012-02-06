@@ -11,5 +11,6 @@
     , "everyauth"        : "latest"
     , "bcrypt"           : "latest"
     , "underscore"       : "latest"
+    , "hamljs"           : "latest"
   }
 }

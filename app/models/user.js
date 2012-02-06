@@ -26,10 +26,10 @@ UserSchema.plugin(mongooseAuth, {
         everyauth:{
             getLoginPath:'/users/login', 
 			postLoginPath:'/login', 
-			loginView:'users/login.jade', 
+			loginView:'users/login.haml', 
 			getRegisterPath:'/users/register', 
 			postRegisterPath:'/register', 
-			registerView:'users/register.jade', 
+			registerView:'users/register.haml', 
 			loginSuccessRedirect:'/', 
 			registerSuccessRedirect:'/'
         }
