@@ -38,11 +38,9 @@ app.configure('production', function () {
 });
 
 /**-------------- ROUTES --------------**/
-var	users_routes = require('./app/controllers/users_controller');
-var	hills_routes = require('./app/controllers/hills_controller');
-app.get('/', users_routes.index);
-
-app.get('/hills/', hills_routes.index);
+var	routes = require('./route');
+app.get('/', 	   routes.users_index);
+app.get('/hills/', routes.hills_index);
 
 /**-------------- START --------------**/
 mongooseAuth.helpExpress(app);
