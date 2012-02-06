@@ -1,0 +1,23 @@
+- if (typeof errors !== 'undefined' && errors.length)
+  %ul#errors
+    - each error in errors
+      %li.error= error
+
+%form{ action: '/hills/create', method: 'POST' }
+  %div
+    %label{ for:  'name'} Name
+    %input{ type: 'text', name: 'hill[name]', value: hill.name }
+  %div
+    %label{ for:  'name'} Snow top
+    %input{ type: 'text', name: 'hill[snow_top]', type: 'number', value: hill.snow_top }
+  %div
+    %label{ for:  'name'} Snow bottom
+    %input{ type: 'text', name: 'hill[snow_bottom]', type: 'number', value: hill.snow_bottom }
+  %div
+    %label{ for:  'name'} Number of lifts
+    %input{ type: 'text', name: 'hill[total_nb_lifts]', type: 'number', value: hill.total_nb_lifts }
+  %div
+    %label{ for:  'name'} Number of lifts opens
+    %input{ type: 'text', name: 'hill[nb_lifts_open]', type: 'number', value: hill.nb_lifts_open }
+  #submit
+    %input{ type: 'submit', value: 'Create' }

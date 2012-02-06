@@ -5,11 +5,30 @@ exports.index = function(req, res) {
 };
 
 exports.show = function(req, res) {
-    Hill.find({name: req.params.name},function(err, hill) {
-		res.render('hills/index', {hills: hill});
+    Hill.findById(req.params.id, function (err, hill) {
+		res.render('hills/show', {hill: hill});
     });
 };
 
 exports.new = function(req, res) {
-	res.render('hills/index', {hills: hill});
+	res.render('hills/new', {hill: {}});
+};
+
+exports.edit = function(req, res) {
+    Hill.findById(req.params.id, function (err, hill) {
+        res.render('hills/edit', {hill: hill});
+    });	
+};
+
+exports.create = function(req, res) {
+    var new_hill = new Hill(req.body.hill);
+    new_hill.save()
+    res.redirect('/hills');
+};
+
+exports.destroy = function(req, res) {
+    Hill.findById(req.body.hill_id, function (err, hill) {
+        hill.remove();
+    });
+    res.redirect('/hills');
 };

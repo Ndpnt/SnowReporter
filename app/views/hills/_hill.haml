@@ -1,1 +1,6 @@
-%li= hill.name
+%li
+  %a{href: 'hills/'+ hill.id}= hill.name
+  %form{ action: '/hills/destroy', method: 'POST' }
+    %input{ type: 'hidden', name: 'hill_id', value: hill.id }
+    %input{ type: 'submit', value: 'X' }
+  %a{href: 'hills/'+ hill.id + '/edit'} Editer

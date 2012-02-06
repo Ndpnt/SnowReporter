@@ -13,8 +13,14 @@ module.exports = function(app) {
 	    res.redirect('/users/login');
 	  }
 	}
-	
-	app.get('/hills/' 	 	, restrict, hills.index);
-	app.get('/hills/:name'  , 			hills.show);
-	app.get('/'		  	 	, 			users.index);
+
+	// Resources for Hills
+	app.get('/hills' 	 	    ,           hills.index);
+	app.get('/hills/new'        ,           hills.new);
+	app.get('/hills/:id/edit'       ,           hills.edit);
+	app.post('/hills/create'    ,           hills.create);
+	app.post('/hills/destroy'   , restrict, hills.destroy);
+	app.get('/hills/:id'      , 			hills.show);
+	app.get('/'		  	 	    , 			users.index);
+
 }
