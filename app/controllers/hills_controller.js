@@ -16,6 +16,9 @@ exports.new = function(req, res) {
 
 exports.edit = function(req, res) {
     Hill.findById(req.params.id, function (err, hill) {
+		console.log(hill);
+		hill.save(req.body.hill);
+		console.log(hill);
         res.render('hills/edit', {hill: hill});
     });	
 };

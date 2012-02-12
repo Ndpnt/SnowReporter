@@ -16,11 +16,11 @@ module.exports = function(app) {
 
 	// Resources for Hills
 	app.get('/hills' 	 	    ,           hills.index);
-	app.get('/hills/new'        ,           hills.new);
-	app.get('/hills/:id/edit'       ,           hills.edit);
-	app.post('/hills/create'    ,           hills.create);
+	app.get('/hills/new'        , restrict, hills.new);
+	app.get('/hills/:id/edit'   ,           hills.edit);
+	app.post('/hills/create'    , restrict, hills.create);
 	app.post('/hills/destroy'   , restrict, hills.destroy);
-	app.get('/hills/:id'      , 			hills.show);
+	app.get('/hills/:id'        , 			hills.show);
 	app.get('/'		  	 	    , 			users.index);
 
 }

@@ -11,6 +11,7 @@ var HillSchema = new Schema({
     snow_bottom     : {type: Number, min: 0},
     total_nb_lifts  : {type: Number, min: 0},
     nb_lifts_open   : {type: Number, min: 0, max: this.total_nb_lifts},
+	last_updated    : Date,
     runs            : [{
         type: String, 
         open: Boolean
