@@ -1,6 +1,9 @@
 body {
-	padding: 50px;
+	padding: 1em;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	max-width: 70em;
+	border: 1px solid #333;
+	margin: auto;
 }
 
 a {
@@ -9,4 +12,13 @@ a {
 
 input {
 
+}
+
+ul#hill {
+	list-style: none;
+	padding: 0;
+}
+
+ul#hill li {
+	padding-bottom: 1em;
 }

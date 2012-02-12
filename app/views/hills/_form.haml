@@ -3,7 +3,7 @@
     - each error in errors
       %li.error= error
 
-%form{ action: '/hills/create', method: 'POST' }
+%form{ action: '/hills/' + action, method: 'POST' }
   %div
     %label{ for:  'name'} Name
     %input{ type: 'text', name: 'hill[name]', value: hill.name }
@@ -19,5 +19,29 @@
   %div
     %label{ for:  'name'} Number of lifts opens
     %input{ type: 'text', name: 'hill[nb_lifts_open]', type: 'number', value: hill.nb_lifts_open }
+  %div
+    %label{ for:  'green_runs'} Number of green runs
+    %input{ type: 'text', name: 'hill[green_runs]', type: 'number', value: hill.nb_green_runs }
+  %div
+    %label{ for:  'green_runs_open'} Number of green runs open
+    %input{ type: 'text', name: 'hill[green_runs_open]', type: 'number', value: hill.nb_green_runs_open }
+  %div
+    %label{ for:  'blue_runs'} Number of blue runs
+    %input{ type: 'text', name: 'hill[blue_runs]', type: 'number', value: hill.nb_blue_runs }
+  %div
+    %label{ for:  'blue_runs_open'} Number of blue runs open
+    %input{ type: 'text', name: 'hill[blue_runs_open]', type: 'number', value: hill.nb_blue_runs_open }
+  %div
+    %label{ for:  'red_runs'} Number of red runs
+    %input{ type: 'text', name: 'hill[red_runs]', type: 'number', value: hill.nb_red_runs }
+  %div
+    %label{ for:  'red_runs_open'} Number of red runs open
+    %input{ type: 'text', name: 'hill[red_runs_open]', type: 'number', value: hill.nb_red_runs_open }
+  %div
+    %label{ for:  'black_runs'} Number of blue runs
+    %input{ type: 'text', name: 'hill[black_runs]', type: 'number', value: hill.nb_black_runs }
+  %div
+    %label{ for:  'black_runs_open'} Number of blue runs open
+    %input{ type: 'text', name: 'hill[black_runs_open]', type: 'number', value: hill.nb_black_runs_open }    
   #submit
-    %input{ type: 'submit', value: 'Create' }
+    %input{ type: 'submit', value: action }

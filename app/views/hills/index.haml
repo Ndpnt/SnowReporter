@@ -1,2 +1,5 @@
+%p Bienvenue
+  - if (user)
+    = user.name.inspect
 %ul#hill
   != partial('hill', hills)

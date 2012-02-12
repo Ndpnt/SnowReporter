@@ -1,9 +1,38 @@
-%dl
-  %dt Name
-  %dd= hill.name
-  %dt Snow Top
-  %dd= hill.snow_top
-  %dt Snow Bottom
-  %dd= hill.snow_bottom
-  %dt Dernière mise à jour
-  %dd= hill.last_updated
+%table
+  %tbody
+    %tr
+      %th Name
+      %td= hill.name
+    %tr
+      %th Snow Top
+      %td= hill.snow_top
+    %tr
+      %th Snow Bottom
+      %td= hill.snow_bottom
+    %tr
+      %th Dernière mise à jour
+      %td= hill.updated_at
+    %tr
+      %th Nb piste verte ouvertes/Nb piste verte
+      %td
+        = hill.green_runs_open
+        \/
+        = hill.green_runs
+    %tr
+      %th Nb piste bleue ouvertes/Nb piste bleue
+      %td
+        = hill.blue_runs_open
+        \/
+        = hill.blue_runs
+    %tr
+      %th Nb piste rouge ouvertes/Nb piste rouge
+      %td
+        = hill.red_runs_open
+        \/
+        = hill.red_runs
+    %tr
+      %th Nb piste noire ouvertes/Nb piste noire
+      %td
+        = hill.black_runs_open
+        \/
+        = hill.black_runs
