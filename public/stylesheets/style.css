@@ -3,6 +3,7 @@ body {
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	max-width: 70em;
 	margin: auto;
+	background: #FAFAFA;
 }
 
 h1, h2 {
@@ -21,6 +22,16 @@ a {
 	color: #00B7FF;
 }
 
+#title {
+  border: none;
+  background: none;
+  text-align: center;
+  border-bottom: 2px solid #333;
+  border-top: 2px solid #333;
+  box-shadow: 0 1px 0 #CCC, 0 2px 0 black, 0 -1px 0 #CCC, 0 -2px 0 black ;
+}
+
+
 input {
   padding: 0.5em;
   border-radius: 2px;
@@ -28,7 +39,8 @@ input {
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
 }
 
-input[type=submit] {
+input[type=submit], button, a.button {
+  text-decoration: none;
   background-image: -moz-linear-gradient(top, #F5F5F5, #EEE); 
   background-image: -o-linear-gradient(top, #F5F5F5, #EEE); 
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #F5F5F5),color-stop(1, #EEE)); 
@@ -40,41 +52,20 @@ input[type=submit] {
   cursor: pointer;
   border: 1px solid #AAA;
   color: #333;
-  text-shadow: 1px 1px 1px rgba(200, 200, 200, 0.8);
+  text-shadow: 1px 1px 0px rgba(200, 200, 200, 0.8);
   box-shadow: 0 0 3px rgba(0,0,0, 0.3), inset 1px 1px 0px rgba(255,255,255,0.3);
   border-radius: 5px;
   text-transform: capitalize;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover, button:hover, a.button:hover {
   background-image: none;
   background: #FFF;
 }
 
-input[type=submit]:active {
+input[type=submit]:active, button:active, a.button:active {
   box-shadow: 0 0 0px rgba(0,0,0, 0.3), inset 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
-/*
-
-html body form input[type="submit"], button {
-  @include uniform_gradient(#a20003, #e10000);
-  display: inline-block;
-  padding: 5px 10px 6px 10px;
-  text-shadow: 1px 1px 1px rgba(255,255,255,1);
-  cursor: pointer;
-  border: 1px solid #880003;
-  //border: none;
-  color: white;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
-  //box-shadow: inset 1px 1px 0px rgba(255,255,255,0.3);
-  box-shadow: 0 0 3px rgba(0,0,0, 0.3), inset 1px 1px 0px rgba(255,255,255,0.3);
-  @include radius(5px);
-}
-
-html body form input[type="submit"]:hover, button:hover {
-  box-shadow: 0 0 0px rgba(0,0,0, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.9);
-}
-*/
 
 table {
 	text-align: left;
@@ -105,12 +96,42 @@ table tr:last-child td, table tr:last-child  th {
 ul#hill {
 	list-style: none;
 	padding: 0;
+	display: table;
 }
 
 ul#hill li {
 	padding-bottom: 1em;
-	display: inline-block;
+	display: table-row;
 }
+
 ul#hill li > *{
-	display: inline-block;
+	display: table-cell;
+}
+
+form {
+  display: table;
+}
+
+form > div {
+  display: table-row;
+}
+
+form > div > * {
+  display: table-cell;
+}
+
+
+#messages > ul {
+  list-style: none;
+  padding: 0.5em;
+  text-align: center;
+  border-radius: 5px;
+}
+#messages .error {
+  color: red;
+  border: 1px solid red;
+}
+#messages .info {
+  color: green;
+  border: 1px solid green;
 }

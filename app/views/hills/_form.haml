@@ -38,4 +38,5 @@
     %label{ for:  'black_runs_open'} Number of black runs open
     %input{ type: 'text', name: 'hill[black_runs_open]', type: 'number', value: hill.nb_black_runs_open }    
   #submit
+    %input{ type: 'hidden', name: 'hill_id', value: hill.id}
     %input{ type: 'submit', value: action }

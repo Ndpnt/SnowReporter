@@ -2,10 +2,7 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
 	mongooseAuth = require('mongoose-auth');
 
-var UserSchema = new Schema({
-    name:String,
-    lastname:String,
-});
+var UserSchema = new Schema();
 
 UserSchema.plugin(mongooseAuth, {
     everymodule:{
@@ -17,11 +14,10 @@ UserSchema.plugin(mongooseAuth, {
     },
     password:{
         loginWith:'email',
-        extraParams:{
-            name:{
-                first:String, 
-				last:String
-            }
+        extraParams:{  
+          first_name: String, 
+          last_name :  String,
+          skimaster : Boolean
         },
         everyauth:{
             getLoginPath:'/users/login', 

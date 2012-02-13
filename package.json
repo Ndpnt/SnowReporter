@@ -12,5 +12,6 @@
     , "bcrypt"           : "latest"
     , "underscore"       : "latest"
     , "hamljs"           : "latest"
+    , "express-messages" : "latest"
   }
 }

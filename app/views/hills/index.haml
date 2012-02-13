@@ -1,10 +1,13 @@
 -if (!user)
   %a{ href: 'users/login' } Login
 
-%p Bienvenue
+%h3 
+  Welcome&nbsp;
   - if (user)
-    = user.email
-    %a{ href: '/hills/new'} Create new hill
+    = user.first_name
+    %br%a{ class: "button", href: '/hills/new'} Create new hill
+    %a{ class: "button", href: '/logout'} Logout
 
+%h2 List of hills
 %ul#hill
   != partial('hill', hills)
