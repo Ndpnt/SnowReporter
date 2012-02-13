@@ -22,8 +22,6 @@ var HillSchema = new Schema({
     name               : String,
     snow_top           : {type: Number, min: 0},
     snow_bottom        : {type: Number, min: 0},
-    total_nb_lifts     : {type: Number, min: 0},
-    nb_lifts_open      : {type: Number, min: 0, max: this.total_nb_lifts},
 	updated_at         : Date,
 	green_runs 		   : {type: Number, min: 0},
 	green_runs_open    : {type: Number, min: 0},

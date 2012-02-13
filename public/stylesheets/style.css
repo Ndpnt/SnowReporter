@@ -14,6 +14,13 @@ input {
 
 }
 
+table {
+	text-align: left;
+	border: 1px solid #CCC;
+}
+
+table 
+
 ul#hill {
 	list-style: none;
 	padding: 0;
