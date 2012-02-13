@@ -32,6 +32,16 @@ exports.create = function(req, res) {
 
 exports.update = function(req, res) {
 	req.body.hill.updated_at = new Date();
+    console.log(req.body.hill);
+	Hill.update({_id: req.body.hill_id}, req.body.hill, {}, function(err, hill) {
+		res.redirect('/hills');
+	});
+};
+
+exports.comment = function(req, res) {
+	req.body.hill.updated_at = new Date();
+    console.log(req.body.hill);
+    console.log();
 	Hill.update({_id: req.body.hill_id}, req.body.hill, {}, function(err, hill) {
 		res.redirect('/hills');
 	});

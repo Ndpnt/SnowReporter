@@ -5,34 +5,47 @@
       %td= hill.name
     %tr
       %th Snow Top
-      %td= hill.snow_top
+      %td= hill.snow_top || ""
     %tr
       %th Snow Bottom
-      %td= hill.snow_bottom
+      %td= hill.snow_bottom || ""
+    %tr
+      %th Number of lifts
+      %td= hill.green_runs + hill.blue_runs + hill.red_runs + hill.black_runs || ""
+    %tr
+      %th Number of lifts opens
+      %td= hill.green_runs_open + hill.blue_runs_open + hill.red_runs_open + hill.black_runs_open || ""
     %tr
       %th Dernière mise à jour
-      %td= hill.updated_at
+      %td= hill.updated_at || ""
     %tr
       %th Nb piste verte ouvertes/Nb piste verte
       %td
-        = hill.green_runs_open
+        = hill.green_runs_open || ""
         \/
-        = hill.green_runs
+        = hill.green_runs || ""
     %tr
       %th Nb piste bleue ouvertes/Nb piste bleue
       %td
-        = hill.blue_runs_open
+        = hill.blue_runs_open || ""
         \/
-        = hill.blue_runs
+        = hill.blue_runs || ""
     %tr
       %th Nb piste rouge ouvertes/Nb piste rouge
       %td
-        = hill.red_runs_open
+        = hill.red_runs_open || ""
         \/
-        = hill.red_runs
+        = hill.red_runs || ""
     %tr
       %th Nb piste noire ouvertes/Nb piste noire
       %td
-        = hill.black_runs_open
+        = hill.black_runs_open || ""
         \/
-        = hill.black_runs
+        = hill.black_runs || ""
+
+%form{ action: '/hills/comment', method: 'POST' }
+  %input{ name: 'hill[id]', value: hill.id, type: 'hidden'}
+  %div
+    %textarea{ name: 'hill[comment]' }
+    %input{ type: 'submit', value: "Comment"} 
+
