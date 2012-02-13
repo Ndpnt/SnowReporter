@@ -43,9 +43,27 @@
         \/
         = hill.black_runs || ""
 
+%h2 Comments
+
+Average snow:
+#score= score
+
+
+%ul#comments
+  != partial('comment', hill.comments)
+
+
 %form{ action: '/hills/comment', method: 'POST' }
   %input{ name: 'hill[id]', value: hill.id, type: 'hidden'}
   %div
-    %textarea{ name: 'hill[comment]' }
-    %input{ type: 'submit', value: "Comment"} 
+    %label{ for : 'lousy_snow' } Lousy
+    %input#lousy_snow{ type: 'radio', name:'comment[score]', value: '0'} 0
+    %input{ type: 'radio', name:'comment[score]', value: '1'} 1
+    %input{ type: 'radio', name:'comment[score]', value: '2'} 2
+    %input{ type: 'radio', name:'comment[score]', value: '3'} 3
+    %input#great_snow{ type: 'radio', name:'comment[score]', value: '4'} 4
+    %label{ for: 'great_snow' } Great
+  %div
+    %textarea{ name: 'comment[content]' }
+  %input{ type: 'submit', value: "Comment"} 
 

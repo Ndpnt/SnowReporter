@@ -47,4 +47,8 @@ ul#hill {
 
 ul#hill li {
 	padding-bottom: 1em;
+	display: inline-block;
+}
+ul#hill li > *{
+	display: inline-block;
 }
