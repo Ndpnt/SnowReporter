@@ -17,9 +17,28 @@ input {
 table {
 	text-align: left;
 	border: 1px solid #CCC;
+	border-spacing: 0;
 }
 
-table 
+table td, table th {
+	border-bottom: 1px solid #CCC;
+	padding: 0.5em;
+}
+table td {
+	border-left: 1px solid #CCC;
+}
+
+table tr:nth-child(odd) td {
+	background: #F5F5FF;
+}
+
+table tr th{
+	background: #F2F2FF;
+}
+
+table tr:last-child td, table tr:last-child  th {
+	border-bottom: none;
+}
 
 ul#hill {
 	list-style: none;
