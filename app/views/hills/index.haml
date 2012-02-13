@@ -1,5 +1,10 @@
+-if (!user)
+  %a{ href: 'users/login' } Login
+
 %p Bienvenue
   - if (user)
-    = user.name.inspect
+    = user.email
+    %a{ href: '/hills/new'} Create new hill
+
 %ul#hill
   != partial('hill', hills)

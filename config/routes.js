@@ -20,6 +20,7 @@ module.exports = function(app) {
 	app.get('/hills/new'        , restrict, hills.new);
 	app.get('/hills/:id/edit'   ,           hills.edit);
 	app.post('/hills/create'    , restrict, hills.create);
+	app.post('/hills/comment'   ,           hills.comment);
 	app.post('/hills/update'    , restrict, hills.update);
 	app.post('/hills/destroy'   , restrict, hills.destroy);
 	app.get('/hills/:id'        , 			hills.show);

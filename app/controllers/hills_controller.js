@@ -9,7 +9,12 @@ exports.index = function(req, res) {
 
 exports.show = function(req, res) {
     Hill.findById(req.params.id, function (err, hill) {
-		res.render('hills/show', {hill: hill});
+        var score = 0;
+        for(var i = 0; i < hill.comments.length; i += 1) {
+          score += parseInt(hill.comments[i].score);
+        }
+        score = score / hill.comments.length;
+		res.render('hills/show', {hill: hill, score: score});
     });
 };
 
@@ -31,10 +36,27 @@ exports.create = function(req, res) {
 };
 
 exports.update = function(req, res) {
-	req.body.hill.updated_at = new Date();
+    req.body.hill.updated_at = new Date();
 	Hill.update({_id: req.body.hill_id}, req.body.hill, {}, function(err, hill) {
 		res.redirect('/hills');
 	});
+};
+
+exports.comment = function(req, res) {
+	req.body.hill.updated_at = new Date();
+    var comment = {
+        who     : (req.user ? req.user.name : 'Anonymous'),
+        when    : new Date(),
+        content : req.body.comment.content, 
+        score   : req.body.comment.score
+    };
+    var hill_id = req.body.hill.id
+    Hill.findById(hill_id, function (err, hill) {
+        hill.comments.push(comment);
+        hill.save(function() {
+            res.redirect('/hills/' + hill.id);
+        });
+    });	
 };
 
 exports.destroy = function(req, res) {
