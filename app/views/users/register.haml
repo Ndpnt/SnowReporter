@@ -5,19 +5,19 @@
       %li.error= error
 %form{ action: '/register', method: 'POST' }
   #login
-    %label{ for: everyauth.password.loginFormFieldName } Login
+    %label{ for: everyauth.password.loginFormFieldName } Email
     %input{ type: 'text', name: everyauth.password.loginFormFieldName, value: userParams[everyauth.password.loginFormFieldName] }
   #password
-    %label{ for: everyauth.password.passwordFormFieldName } Password
+    %label{ for: everyauth.password.passwordFormFieldName } Mot de passe
     %input{ type: 'password', name: everyauth.password.passwordFormFieldName }
   #first-name
-    %label{ for: 'first_name' } First Name
+    %label{ for: 'first_name' } Prénom
     %input{ type: 'text', name: 'first_name' }
   #last-name
-    %label{ for: 'last_name' } Last Name
+    %label{ for: 'last_name' } Nom
     %input{ type: 'text', name: 'last_name' }
-  #last-name
-    %label{ for: 'skimaster' } Is a skimaster
-    %input{ type: 'checkbox', name: 'skimaster' }
+-#  #last-name
+-#    %label{ for: 'skimaster' } Is a skimaster
+-#    %input{ type: 'checkbox', name: 'skimaster' }
   #submit
     %input{ type: 'submit' }

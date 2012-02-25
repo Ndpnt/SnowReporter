@@ -1,13 +1,13 @@
 -if (!user)
-  %a{ href: 'users/login' } Login
+  %a{ href: 'users/login' } Se connecter
 
 %h3 
-  Welcome&nbsp;
+  Bienvenue&nbsp;
   - if (user)
     = user.first_name
-    %br%a{ class: "button", href: '/hills/new'} Create new hill
-    %a{ class: "button", href: '/logout'} Logout
+    %br%a{ class: "button", href: '/hills/new'} Ajouter une station
+    %a{ class: "button", href: '/logout'} Se déconnecter
 
-%h2 List of hills
+%h2 Liste des stations
 %ul#hill
   != partial('hill', hills)

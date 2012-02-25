@@ -1,6 +1,5 @@
-%li
-  %score= comment.score 
-  %content= comment.content
-  %date= comment.when.toDateString()
-  \ by
-  %user= comment.who
+%tr
+  %td.user= comment.who
+  %td.score= comment.score 
+  %td.content= comment.content
+  %td.date= comment.when.toDateString()
