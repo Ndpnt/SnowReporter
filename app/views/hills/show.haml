@@ -54,6 +54,7 @@
       %th Utilisateur
       %th Score
       %th Commentaire
+      %th Qualité de la neige
       %th Date
   %tbody
     != partial('comment', hill.comments)
@@ -70,7 +71,21 @@
     %input#great_snow{ type: 'radio', name:'comment[score]', value: '4'} 4
     %label{ for: 'great_snow' } Bonne
   %div
+    %label{ for: 'snow_description_rocky'} Caillouteux
+    %input{ type: 'checkbox', name: 'comment[snow_description][]', id: 'snow_description_rocky', value: 'Rocky'}
+  %div
+    %label{ for: 'snow_description_powder'} Poudreuse
+    %input{ type: 'checkbox', name: 'comment[snow_description][]', id: 'snow_description_powder', value: 'Powder'}
+  %div
+    %label{ for: 'snow_description_artificial_snow'} Neige artificielle
+    %input{ type: 'checkbox', name: 'comment[snow_description][]', id: 'snow_description_artificial_snow', value: 'Artificial Snow'}
+  %div
+    %label{ for: 'snow_description_hard'} Dure
+    %input{ type: 'checkbox', name: 'comment[snow_description][]', id: 'snow_description_hard', value: 'Hard'}
+  %div
+    %label{ for: 'snow_description_soup'} Soupe
+    %input{ type: 'checkbox', name: 'comment[snow_description][]', id: 'snow_description_soup', value: 'Soup'}
+  %div
     %label{ for : 'comment_text' } Commentaire :
     %textarea#comment_text{ name: 'comment[content]' }
   %input{ type: 'submit', value: "Commenter"} 
-

@@ -1,5 +1,8 @@
 %tr
   %td.user= comment.who
-  %td.score= comment.score 
+  %td.score
+    = (typeof comment.score === 'undefined' ? '-' : comment.score)
   %td.content= comment.content
+  %td.snow_description
+    = (typeof comment.snow_description === 'undefined' ? '-' : comment.snow_description)
   %td.date= comment.when.toDateString()

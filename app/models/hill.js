@@ -12,10 +12,11 @@ ScoreSchema = new Schema({
 });
 
 CommentSchema = new Schema({
-  	who     : String,
-    when    : Date,
-    content : String,
-    score   : {type: Number, min: 0, max : 4}
+	  who             : String,
+    when            : Date,
+    content         : String,
+    score           : {type: Number, min: 0, max : 4},
+    snow_description: String
 });
 
 var HillSchema = new Schema({

@@ -8,7 +8,6 @@ var mongoose 	 = require('mongoose')
 
 mongoose.connect('mongodb://localhost/snow_reporter');
 
-
 /**-------------- MODELS --------------**/
 require('./app/models/user');
 User = mongoose.model('User');

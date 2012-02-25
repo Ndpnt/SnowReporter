@@ -60,11 +60,18 @@ exports.update = function(req, res) {
 
 exports.comment = function(req, res) {
     req.body.hill.updated_at = new Date();
+    
+    var snow_quality = '';
+    for (var i = 0; i < req.body.comment.snow_description.length; i += 1) {
+      snow_quality += req.body.comment.snow_description[i];
+      snow_quality += (i === req.body.comment.snow_description.length - 1 ? '' : ', ');
+    };
     var comment = {
-        who     : (req.user ? req.user.first_name + " " + req.user.last_name : 'Anonymous'),
-        when    : new Date(),
-        content : req.body.comment.content, 
-        score   : req.body.comment.score
+        who             : (req.user ? req.user.first_name + " " + req.user.last_name : 'Anonymous'),
+        when            : new Date(),
+        content         : req.body.comment.content, 
+        snow_description: snow_quality,
+        score           : req.body.comment.score
     };
     var hill_id = req.body.hill.id
     Hill.findById(hill_id, function (err, hill) {
