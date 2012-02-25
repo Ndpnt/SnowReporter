@@ -45,7 +45,7 @@ exports.create = function(req, res) {
 };
 
 exports.update = function(req, res) {
-  req.body.hill.updated_at = new Date();
+	req.body.hill.updated_at = new Date();
 	Hill.update({_id: req.body.hill_id}, req.body.hill, {}, function(err, hill) {
       if (!err) {
         req.flash('info', 'Hill correctly updated');

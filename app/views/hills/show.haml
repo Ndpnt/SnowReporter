@@ -15,7 +15,7 @@
       %td= hill.green_runs_open + hill.blue_runs_open + hill.red_runs_open + hill.black_runs_open || ""
     %tr
       %th Dernière mise à jour
-      %td= hill.updated_at || ""
+      %td= hill.updated_at.toDateString() || ""
     %tr
       %th Nb piste verte ouvertes/Nb piste verte
       %td
