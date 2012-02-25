@@ -4,13 +4,15 @@ require('../app/models/user');
 mongoose.connect('mongodb://localhost/snow_reporter');
 User = mongoose.model('User');
 
-User.collection.remove();
 
 
 require('../app/models/hill');
 Hill = mongoose.model('Hill');
+User.collection.remove();
+console.log('User collection cleared');
 
 Hill.collection.remove();
+console.log('Hill collection cleared');
 var isola = new Hill({
     name               : "Isola 2000",
     snow_top           : 100,
@@ -26,7 +28,7 @@ var isola = new Hill({
     black_runs_open    : 2,
 });
 isola.save();
-
+console.log('Isola created');
 var auron = new Hill({
     name               : "Auron",
     snow_top           : 90,
@@ -42,5 +44,6 @@ var auron = new Hill({
     black_runs_open    : 1,
 });
 auron.save();
-
+console.log('Auron created');
 mongoose.connection.close();
+console.log('Connection closed');

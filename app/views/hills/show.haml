@@ -2,16 +2,16 @@
 %table
   %tbody
     %tr
-      %th Snow Top
+      %th Hauteur de neige en haut
       %td= hill.snow_top || ""
     %tr
-      %th Snow Bottom
+      %th Hauteur de neige en bas
       %td= hill.snow_bottom || ""
     %tr
-      %th Number of lifts
+      %th Nombre de remontée
       %td= hill.green_runs + hill.blue_runs + hill.red_runs + hill.black_runs || ""
     %tr
-      %th Number of lifts opens
+      %th Nombre de remontée ouvertes
       %td= hill.green_runs_open + hill.blue_runs_open + hill.red_runs_open + hill.black_runs_open || ""
     %tr
       %th Dernière mise à jour
@@ -41,27 +41,36 @@
         \/
         = hill.black_runs || ""
 
-%h2 Comments
+%h2 Commentaires
+%table
+  %tbody
+    %tr
+      %th Qualité moyenne de la neige selon les utilisateurs
+      %td= score || ""
 
-Average snow:
-#score= score
+%table#comments
+  %thead
+    %tr
+      %th Utilisateur
+      %th Score
+      %th Commentaire
+      %th Date
+  %tbody
+    != partial('comment', hill.comments)
 
-
-%ul#comments
-  != partial('comment', hill.comments)
-
-
-%form{ action: '/hills/comment', method: 'POST' }
+%form.comment_form{ action: '/hills/comment', method: 'POST' }
   %input{ name: 'hill[id]', value: hill.id, type: 'hidden'}
-  %div
-    %label{ for : 'lousy_snow' } Lousy
+  %div#quality
+    %label Qualité de la neige :
+    %label{ for : 'lousy_snow' } Mauvaise
     %input#lousy_snow{ type: 'radio', name:'comment[score]', value: '0'} 0
     %input{ type: 'radio', name:'comment[score]', value: '1'} 1
     %input{ type: 'radio', name:'comment[score]', value: '2'} 2
     %input{ type: 'radio', name:'comment[score]', value: '3'} 3
     %input#great_snow{ type: 'radio', name:'comment[score]', value: '4'} 4
-    %label{ for: 'great_snow' } Great
+    %label{ for: 'great_snow' } Bonne
   %div
-    %textarea{ name: 'comment[content]' }
-  %input{ type: 'submit', value: "Comment"} 
+    %label{ for : 'comment_text' } Commentaire :
+    %textarea#comment_text{ name: 'comment[content]' }
+  %input{ type: 'submit', value: "Commenter"} 
 

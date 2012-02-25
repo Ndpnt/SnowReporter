@@ -135,3 +135,39 @@ form > div > * {
   color: green;
   border: 1px solid green;
 }
+
+#comments {
+  margin-top: 1em;
+}
+
+#comments thead tr th{
+  background: #F2F2FF;
+  border-bottom: 1px solid #CCC;
+}
+
+#comments td:first-child {
+  border-left: none;
+}
+
+.comment_form {
+  display: block; 
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px solid #CCC; 
+}
+
+.comment_form > div {
+  display: block;
+}
+
+#quality {
+  display: inline;
+}
+
+.comment_form > div > * {
+  display: inline;
+}
+textarea {
+  min-height: 100px;
+  min-width: 300px;
+}

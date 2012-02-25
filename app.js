@@ -22,9 +22,6 @@ var app = module.exports = express.createServer();
 require('./config/environment.js')(app, express);
 
 app.dynamicHelpers({
-  // express-messages is a dynamicHelper that
-  // renders the flash messages to HTML for you
-  //    $ npm install express-messages
   messages: require('express-messages')
 });
 
