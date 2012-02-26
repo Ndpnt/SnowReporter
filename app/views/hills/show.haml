@@ -46,7 +46,7 @@
   %tbody
     %tr
       %th Qualité moyenne de la neige selon les utilisateurs
-      %td= score || ""
+      %td= score.toPrecision(2) || ""
 
 %table#comments
   %thead
@@ -57,7 +57,7 @@
       %th Qualité de la neige
       %th Date
   %tbody
-    != partial('comment', hill.comments)
+    != partial('comment', comments)
 
 %form.comment_form{ action: '/hills/comment', method: 'POST' }
   %input{ name: 'hill[id]', value: hill.id, type: 'hidden'}

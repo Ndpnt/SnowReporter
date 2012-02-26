@@ -8,14 +8,22 @@ exports.show = function(req, res) {
     Hill.findById(req.params.id, function (err, hill) {
         var score = 0;
         var length = 0;
+        var dateToCompareWith = new Date();
+        var newDate = dateToCompareWith.getTime();
+        newDate = newDate - (3600 * 1000 * 24 * 7);
+        dateToCompareWith.setTime(newDate);
+        var comments = [];
         for(var i = 0; i < hill.comments.length; i += 1) {
-          if(!isNaN(parseInt(hill.comments[i].score))) {
-            score += parseInt(hill.comments[i].score);
-            length += 1; 
-          }
+          if (hill.comments[i].when > dateToCompareWith) {
+            comments.push(hill.comments[i]);
+            if(!isNaN(parseInt(hill.comments[i].score))) {
+              score += parseInt(hill.comments[i].score);
+              length += 1; 
+            }
+          }  
         }
         score = score / length;
-      res.render('hills/show', {hill: hill, score: score});
+      res.render('hills/show', {hill: hill, score: score, comments: comments});
     });
 };
 
@@ -62,10 +70,12 @@ exports.comment = function(req, res) {
     req.body.hill.updated_at = new Date();
     
     var snow_quality = '';
-    for (var i = 0; i < req.body.comment.snow_description.length; i += 1) {
-      snow_quality += req.body.comment.snow_description[i];
-      snow_quality += (i === req.body.comment.snow_description.length - 1 ? '' : ', ');
-    };
+    if (typeof req.body.comment.snow_description !== 'undefined') {
+      for (var i = 0; i < req.body.comment.snow_description.length; i += 1) {
+        snow_quality += req.body.comment.snow_description[i];
+        snow_quality += (i === req.body.comment.snow_description.length - 1 ? '' : ', ');
+      };
+    }
     var comment = {
         who             : (req.user ? req.user.first_name + " " + req.user.last_name : 'Anonymous'),
         when            : new Date(),
