@@ -5,5 +5,5 @@
   %td.content
     = comment.content || 'Aucun commentaire'
   %td.snow_description
-    = (typeof comment.snow_description === 'undefined' ? '-' : comment.snow_description)
+    = comment.snow_description || '-' 
   %td.date= comment.when.toDateString()
