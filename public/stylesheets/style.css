@@ -4,6 +4,7 @@ body {
 	max-width: 70em;
 	margin: auto;
 	background: #FAFAFA;
+	color: #444;
 }
 
 h1, h2 {
@@ -170,4 +171,21 @@ form > div > * {
 textarea {
   min-height: 100px;
   min-width: 300px;
+}
+
+.green {
+	color: green;
+}
+
+.red {
+	color: red;
+}
+
+.blue {
+	color: blue;
+}
+}
+	
+}
+	
 }

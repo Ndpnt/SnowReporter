@@ -18,25 +18,25 @@
       %td= hill.updated_at.toDateString() || ""
     %tr
       %th Nb piste verte ouvertes/Nb piste verte
-      %td
+      %td.green
         = hill.green_runs_open || ""
         \/
         = hill.green_runs || ""
     %tr
       %th Nb piste bleue ouvertes/Nb piste bleue
-      %td
+      %td.blue
         = hill.blue_runs_open || ""
         \/
         = hill.blue_runs || ""
     %tr
       %th Nb piste rouge ouvertes/Nb piste rouge
-      %td
+      %td.red
         = hill.red_runs_open || ""
         \/
         = hill.red_runs || ""
     %tr
       %th Nb piste noire ouvertes/Nb piste noire
-      %td
+      %td.black
         = hill.black_runs_open || ""
         \/
         = hill.black_runs || ""
