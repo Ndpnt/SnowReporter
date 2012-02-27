@@ -18,6 +18,7 @@ Hill = mongoose.model('Hill');
 
 /**-------------- APP --------------**/
 var app = module.exports = express.createServer();
+var sockets = require('./app/controllers/sockets_controller').setup(app);
 require('./config/environment.js')(app, express);
 
 app.dynamicHelpers({

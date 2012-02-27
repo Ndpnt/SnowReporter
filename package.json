@@ -13,5 +13,6 @@
     , "underscore"       : "latest"
     , "hamljs"           : "latest"
     , "express-messages" : "latest"
+    , "socket.io"        : "latest"
   }
 }

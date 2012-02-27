@@ -1,6 +1,5 @@
-var users = require('../app/controllers/users_controller');
-var hills = require('../app/controllers/hills_controller');
-
+var users   = require('../app/controllers/users_controller');
+var hills   = require('../app/controllers/hills_controller');
 module.exports = function(app) {
 
 	// Resources for Hills

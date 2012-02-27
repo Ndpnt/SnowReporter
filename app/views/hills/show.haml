@@ -1,3 +1,19 @@
+%script{ src: "/socket.io/socket.io.js" }
+:javascript
+  var socket = io.connect('/');
+  socket.on('comment', function (comment) {
+    var tr = $('<tr></tr>');
+    tr.append($('<td></td>').addClass('user').html(comment.who));
+    tr.append($('<td></td>').addClass('score').html(comment.score));
+    tr.append($('<td></td>').addClass('score').html(comment.content));
+    tr.append($('<td></td>').addClass('user').html(comment.snow_description));
+    tr.append($('<td></td>').addClass('user').html(new Date(Date.parse(comment.when)).toDateString()));
+    $('#comments tbody').append(tr);
+  });
+  socket.on('hill_score', function (hill, score) {
+    $('#hill_score').html(score);
+  });
+
 %h1= hill.name
 %table
   %tbody
@@ -46,7 +62,7 @@
   %tbody
     %tr
       %th Qualité moyenne de la neige selon les utilisateurs
-      %td= score.toPrecision(2) || ""
+      %td#hill_score= score || ""
 
 %table#comments
   %thead

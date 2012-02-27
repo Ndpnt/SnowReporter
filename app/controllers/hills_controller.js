@@ -1,3 +1,5 @@
+var sockets = require('./sockets_controller');
+
 exports.index = function(req, res) {
     Hill.find(function(err, hills) {
   		res.render('hills/index', {hills: hills, user: req.user});
@@ -6,23 +8,8 @@ exports.index = function(req, res) {
 
 exports.show = function(req, res) {
     Hill.findById(req.params.id, function (err, hill) {
-        var score = 0;
-        var length = 0;
-        var dateToCompareWith = new Date();
-        var newDate = dateToCompareWith.getTime();
-        newDate = newDate - (3600 * 1000 * 24 * 7);
-        dateToCompareWith.setTime(newDate);
-        var comments = [];
-        for(var i = 0; i < hill.comments.length; i += 1) {
-          if (hill.comments[i].when > dateToCompareWith) {
-            comments.push(hill.comments[i]);
-            if(!isNaN(parseInt(hill.comments[i].score))) {
-              score += parseInt(hill.comments[i].score);
-              length += 1; 
-            }
-          }  
-        }
-        score = score / length;
+      var score = hill.computeScore();
+      var comments = hill.getComments();
       res.render('hills/show', {hill: hill, score: score, comments: comments});
     });
 };
@@ -33,7 +20,6 @@ exports.new = function(req, res) {
 
 exports.edit = function(req, res) {
     Hill.findById(req.params.id, function (err, hill) {
-        console.log(hill);
         res.render('hills/edit', {hill: hill, action: 'update'});
     });	
 };
@@ -83,8 +69,11 @@ exports.comment = function(req, res) {
         snow_description: snow_quality,
         score           : req.body.comment.score
     };
+    sockets.pushComment(comment);
     var hill_id = req.body.hill.id
     Hill.findById(hill_id, function (err, hill) {
+        sockets.pushHillScore(hill, hill.computeScore());
+
         hill.comments.push(comment);
         hill.save(function (err) {
           if (!err) {

@@ -40,4 +40,38 @@ var HillSchema = new Schema({
 });
 
 
+/**
+ * Return all comments that are maximum 1 week old
+ */
+HillSchema.methods.getComments = function() {
+    var comments = [];
+    var dateToCompareWith = new Date();
+    var newDate = dateToCompareWith.getTime();
+    newDate = newDate - (3600 * 1000 * 24 * 7);
+    dateToCompareWith.setTime(newDate);
+    for(var i = 0; i < this.comments.length; i += 1) {
+      if (this.comments[i].when > dateToCompareWith) {
+        comments.push(this.comments[i]);
+      }  
+    }
+    return comments;
+}
+
+/**
+ * Return the score of the hills relatives to comments
+ */
+HillSchema.methods.computeScore = function() {
+    var comments = this.getComments();
+    var length = 0, score = 0;
+    for(var i = 0; i < comments.length; i += 1) {
+      if(!isNaN(parseInt(comments[i].score))) {
+        score += parseInt(comments[i].score);
+        length += 1; 
+      }
+    }
+    score = score / length;
+    
+    return (isNaN(score) ? '-' : score.toPrecision(2));
+};
+
 mongoose.model('Hill', HillSchema);
