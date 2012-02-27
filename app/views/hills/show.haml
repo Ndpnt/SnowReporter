@@ -10,9 +10,6 @@
     tr.append($('<td></td>').addClass('user').html(new Date(Date.parse(comment.when)).toDateString()));
     $('#comments tbody').append(tr);
   });
-  socket.on('hill_score', function (hill, score) {
-    $('#hill_score').html(score);
-  });
 
 %h1= hill.name
 %table
